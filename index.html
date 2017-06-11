@@ -20,7 +20,13 @@
         }
     </style>
 
-
+    <script>
+        document.addEventListener("deviceready", function () {
+            document.addEventListener("backbutton", function (e) {
+                e.preventDefault();
+            }, false);
+        }, false);
+    </script>
 
 </head>
 
