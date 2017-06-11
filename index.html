@@ -21,11 +21,17 @@
     </style>
 
     <script>
+
         document.addEventListener("deviceready", function () {
             document.addEventListener("backbutton", function (e) {
-                e.preventDefault();
+
+                if (confirm("Do you want to exit?")) {
+                    navigator.app.exitApp();
+                }
+
             }, false);
         }, false);
+
     </script>
 
 </head>
@@ -72,7 +78,7 @@
     <div data-role="page" id="loginPage">
         <div data-role="header">
             <h1>Login</h1>
-            <a class="ui-btn ui-btn-right" href="#startPage" data-transition="pop" data-direction="reverse">Back</a>
+            <a class="ui-btn ui-btn-right _btn-back" href="#startPage" data-transition="pop" data-direction="reverse">Back</a>
         </div>
         <div data-role="main" class="ui-content">
 
@@ -98,7 +104,7 @@
 
         <div data-role="header" data-position="fixed">
             <h1>Registeration</h1>
-            <a class="ui-btn ui-btn-right" href="#startPage" data-transition="pop" data-direction="reverse">Back</a>
+            <a class="ui-btn ui-btn-right _btn-back" href="#startPage" data-transition="pop" data-direction="reverse">Back</a>
         </div>
 
         <div data-role="main" class="ui-content">
