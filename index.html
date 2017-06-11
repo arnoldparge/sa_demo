@@ -41,6 +41,11 @@
                 }
 
             }, false);
+
+            document.addEventListener("menubutton", function () {
+                $(".panel1").panel("toggle");
+            }, false);
+
         }, false);
 
     </script>
@@ -52,7 +57,7 @@
     <!--START PAGE-->
     <div data-role="page" id="startPage">
 
-        <div data-role="panel" id="myMenu">
+        <div data-role="panel" class="panel1" id="myMenu">
             <a class="ui-btn">item one</a>
             <a class="ui-btn">item one</a>
             <a class="ui-btn">item one</a>
