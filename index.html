@@ -25,20 +25,18 @@
         document.addEventListener("deviceready", function () {
             document.addEventListener("backbutton", function (e) {
 
-                var __curPage = $(document).pagecontainer("getActivePage");
-
-                if (__curPage == "startPage") {
-                    navigator.navigation.confirm("Do you want to exit the app?", function (opt) {
+                if ($.mobile.activePage.attr("id") == "startPage") {
+                    navigator.notification.confirm("Do you want to exit the app?", function (opt) {
                         if (opt == 1)
                             navigator.app.exitApp();
                     }, "EXIT", ["EXIT", "STAY"]);
                 }
 
-                if (__curPage == "loginPage") {
+                if ($.mobile.activePage.attr("id") == "loginPage") {
                     $(":mobile-pagecontainer").pagecontainer("change", "#startPage", { transition: "pop", reverse: true });
                 }
 
-                if (__curPage == "signUpPage") {
+                if ($.mobile.activePage.attr("id") == "signUpPage") {
                     $(":mobile-pagecontainer").pagecontainer("change", "#startPage", { transition: "pop", reverse: true });
                 }
 
