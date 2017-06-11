@@ -24,12 +24,23 @@
 
         document.addEventListener("deviceready", function () {
             document.addEventListener("backbutton", function (e) {
-                if ($.mobile.activePage.attr("id") == "startPage")
-                {
-                    if (confirm("Do you want to exit?")) {
-                        navigator.app.exitApp();
-                    }
+
+                if ($.mobile.activePage.attr("id") == "startPage") {
+                    navigator.navigation.confirm("Do you want to exit the app?", function (opt) {
+                        if (opt == 1)
+                            navigator.app.exitApp();
+                    }, "EXIT", ["EXIT", "STAY"]);
                 }
+
+                if ($.mobile.activePage.attr("id") == "loginPage") {
+                    $(":mobile-pagecontainer").pagecontainer("change", "#startPage", { transition: "pop", reverse: true });
+                }
+
+                if ($.mobile.activePage.attr("id") == "signUpPage") {
+                    $(":mobile-pagecontainer").pagecontainer("change", "#startPage", { transition: "pop", reverse: true });
+                }
+
+                $(":mobile-pagecontainer").pagecontainer("change", "confirm.html", { role: "dialog" });
 
             }, false);
         }, false);
